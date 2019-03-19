@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculate</title>
+</head>
+<body>
+	<script>		
+		var energy,
+				energyRate, enegryCost,
+				counter, countPeople, waterCold, waterHot,
+				waterColdRate = 1162, waterHotRate = 8632, waterColdCost, waterHotCost;
+		energy = +prompt('Введите количество потребленной электроэнергии, кВт');
+		if (energy < 100) energyRate = 90
+			else energyRate = 168;
+		enegryCost = energy * energyRate / 100;
+		alert('Вам необходимо заплатить ' + enegryCost + ' гривен за электроэнергию.');
+		counter = confirm('У вас есть счетчик на воду?');
+		if (counter) {
+			waterCold = +prompt('Введите количество потребленной холодной воды, м3');
+			waterHot = +prompt('Введите количество потребленной горячей воды, м3');
+		} else {
+			countPeople = +prompt('Введите количество прописанных человек');
+			waterCold = 11 * countPeople;
+			waterHot = 3 * countPeople;
+		}
+		waterColdCost = waterCold * waterColdRate / 100;
+		waterHotCost = waterHot * waterHotRate / 100;
+		alert('Вам необходимо заплатить ' + waterColdCost + ' гривен за холодную воду, '
+			+ waterHotCost + ' гривен за горячую воду.');
+	</script>
+</body>
+</html>
